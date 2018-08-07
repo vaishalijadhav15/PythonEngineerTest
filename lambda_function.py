@@ -22,7 +22,7 @@ def write_file_to_s3(file_obj, bucket_name, s3_key):
     s3.put_object(
         Body=file_obj,
         Bucket=bucket_name,
-        Key=s3_key)
+        Key=s3_key) #this will write file_obj in s3 
     return
 
 
@@ -59,6 +59,6 @@ def lambda_handler(event, context):
         # WRITE FILE TO S3
         # call write file to s3 function
         write_file_to_s3(json_obj, 'astro-datalake-nprod-common', 'test/mytest.json')
-        return 'Hello from Lambda'
+        return 'Done'
     except Exception as e:
         print(e)
